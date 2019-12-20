@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https:&#x2F;&#x2F;d1nkzt4xkvsz79.cloudfront.net&#x2F;product&#x2F;73&#x2F;bf593a18b6eccc4474fdcb6272585c73.jpeg">
 <meta property="article:published_time" content="2019-12-19T09:21:27.000Z">
-<meta property="article:modified_time" content="2019-12-20T04:18:35.925Z">
+<meta property="article:modified_time" content="2019-12-20T07:05:56.270Z">
 <meta property="article:author" content="Johnson Hsu">
 <meta property="article:tag" content="artkernel">
 <meta name="twitter:card" content="summary">
@@ -150,7 +150,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    幾秒 閱讀文 (大約 0 個字)
+                    3 分鐘 閱讀文 (大約 416 個字)
                 </span>
                 
                 
@@ -163,16 +163,40 @@
             
         </h1>
         <div class="content">
-            
-        </div>
-        
-        
-        
-    </div>
-</div>
+            <h1 id="Microservice-Sample"><a href="#Microservice-Sample" class="headerlink" title="Microservice Sample"></a>Microservice Sample</h1><p><a href="LIESMICH.md">German / Deutsch</a></p>
+<p>This is a sample for my<br>Microservices Book (<a href="http://microservices-book.com/" target="_blank" rel="noopener">English</a> / <a href="http://microservices-buch.de/" target="_blank" rel="noopener">German</a>) .</p>
+<p>This project creates a VM with the complete micro service demo system<br>in Docker containers inside a Vagrant VM. The services are implemented<br>in Java using Spring and Spring Cloud.</p>
+<p>It uses three microservices:</p>
+<ul>
+<li>Order to process orders.</li>
+<li>Customer to handle customer data.</li>
+<li>Catalog to handle the items in the catalog.</li>
+</ul>
+<h2 id="Technologies"><a href="#Technologies" class="headerlink" title="Technologies"></a>Technologies</h2><ul>
+<li>Eureka for Lookup</li>
+<li>Ribbon for Load Balancing. See the classes CatalogClient and<br>CustomerClient in com.ewolff.microservice.order.clients in the<br>microservice-demo-order project.</li>
+<li>Hystrix is used for resilience. See CatalogClient in<br>com.ewolff.microservice.order.clients in the microservice-demo-order<br>project . Note that the CustomerClient won’t use Hystrix. This way<br>you can see how a crash of the Customer microservices makes the<br>Order microservice useless.</li>
+<li>Hystrix has a dashboard. Turbine can be used to combine the data<br>from multiple sources. However, this does not work at the moment.</li>
+<li>Zuul is used to route HTTP requests from the outside to the<br>different services.</li>
+<li>Spring Cloud Config isn’t used. It is disabled with<br>spring.cloud.config.enabled=false in the bootstrap files.</li>
+</ul>
+<h2 id="How-To-Run"><a href="#How-To-Run" class="headerlink" title="How To Run"></a>How To Run</h2><p>The demo can be run with <a href="docker-vagrant/README.md">Vagrant</a> or <a href="docker/README.md">Docker Machine and Docker<br>Compose</a>.</p>
+<p><a href="HOW-TO-RUN.md">How to run</a> includes more details.</p>
+<h2 id="Remarks-on-the-Code"><a href="#Remarks-on-the-Code" class="headerlink" title="Remarks on the Code"></a>Remarks on the Code</h2><p>The servers for the infrastruture are pretty simple thanks to Spring Cloud:</p>
+<ul>
+<li>microservice-demo-eureka is the Eureka server for service discovery.</li>
+<li>microservice-demo-zuul is the Zuul server. It distributes the requests to the three microservices.</li>
+<li>microservice-demo-turbine can be used to consolidate the Hystrix metrics and has a Hystrix dashboard.</li>
+</ul>
+<p>The microservices are: </p>
+<ul>
+<li>microservice-demo-catalog is the application to take care of items.</li>
+<li>microserivce-demo-customer is responsible for customers.</li>
+<li>microservice-demo-order does order processing. It uses microservice-demo-catalog and microservice-demo-customer. Ribbon is used for load balancing and Hystrix for resilience.</li>
+</ul>
+<p>The microservices have an Java main application in src/test/java to run them stand alone. microservice-demo-order uses a stub for the other services then. Also there are tests that use customer driven contracts. That is why it is ensured that the services provide the correct interface. These CDC tests are used in microservice-demo-order to verify the stubs. In microserivce-demo-customer and microserivce-demo-catalog they are used to verify the implemented REST services.</p>
 
-<div class="card">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <ins class="adsbygoogle"
      style="display:block; text-align:center;"
      data-ad-layout="in-article"
@@ -182,6 +206,11 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+        </div>
+        
+        
+        
+    </div>
 </div>
 
 
