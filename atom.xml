@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>巴諾克研究室</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://blog.artkernel.net/"/>
+  <updated>2019-12-20T04:18:35.925Z</updated>
+  <id>https://blog.artkernel.net/</id>
+  
+  <author>
+    <name>Johnson Hsu</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>welcome</title>
+    <link href="https://blog.artkernel.net/2019/12/19/welcome/"/>
+    <id>https://blog.artkernel.net/2019/12/19/welcome/</id>
+    <published>2019-12-19T09:21:27.000Z</published>
+    <updated>2019-12-20T04:18:35.925Z</updated>
+    
+    <summary type="html">
+    
+      我的微服務部落格m
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>
